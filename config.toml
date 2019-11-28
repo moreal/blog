@@ -3,13 +3,16 @@ languageCode = "en-us"
 title = "Moreal"
 theme = "m10c"
 
-[[params.social]]
-  name = "github"
-  url = "https://github.com/moreal"
+[params]
+  author = "모래알"
+  description = "모래성 쌓듯."
+  [[params.social]]
+    name = "github"
+    url = "https://github.com/moreal"
 
-[params.style]
-  darkestColor = "#d35050"
-  darkColor = "#212121"
-  lightColor = "#f5e3e0"
-  lightestColor = "#f5f5f5"
-  primaryColor = "#fff"
+  [params.style]
+    darkestColor = "#d35050"
+    darkColor = "#212121"
+    lightColor = "#f5e3e0"
+    lightestColor = "#f5f5f5"
+    primaryColor = "#fff"
