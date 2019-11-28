@@ -1,12 +1,10 @@
-language: go
 dist: xenial
 
 install:
   - |  # install hugo
     wget -O /tmp/hugo.tar.gz https://github.com/gohugoio/hugo/releases/download/v0.59.1/hugo_extended_0.59.1_Linux-64bit.tar.gz &&\
     tar -zxf /tmp/hugo.tar.gz -C /tmp &&\
-    mv /tmp/hugo /usr/local/bin/hugo &&\
-    rm /tmp/*
+    mv /tmp/hugo .
 
   - |  # init submoudles
     git submodule init
@@ -14,7 +12,7 @@ install:
 
 script:
   - |  # build site
-    HUGO_ENV=production hugo -v --minify -d dist
+    HUGO_ENV=production ./hugo -v --minify -d dist
 
 after_success:
   - |  # deploy gh-pages
