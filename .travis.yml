@@ -25,3 +25,7 @@ after_success:
       git commit -m "Deploy moreal.github.io $TRAVIS_COMMIT" --allow-empty
       git push -f origin gh-pages
     popd
+
+branches:
+  only:
+  - master
