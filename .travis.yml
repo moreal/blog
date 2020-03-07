@@ -16,13 +16,14 @@ script:
 
 after_success:
   - |  # deploy gh-pages
-    git clone "https://moreal:$GITHUB_TOKEN@github.com/moreal/moreal.github.io"
-    pushd moreal.github.io
+    git clone "https://moreal:$GITHUB_TOKEN@github.com/moreal/blog.moreal.kr"
+    pushd blog.moreal.kr
       git checkout gh-pages
       git rm -r .
       cp -r ../dist/* .
+      cp -r ../CNAME .
       git add .
-      git commit -m "Deploy moreal.github.io $TRAVIS_COMMIT" --allow-empty
+      git commit -m "Deploy blog.moreal.kr $TRAVIS_COMMIT" --allow-empty
       git push -f origin gh-pages
     popd
 
