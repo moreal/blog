@@ -94,7 +94,7 @@ func implements(t, iface *types.Type, m, samename **types.Field, ptr *int) bool 
 }
 ```
 
-위에서 볼 수 있듯이 비어있는 인터페이스, 즉 `interface{}`로의 변환은 `itab`을 생성하지 않습니다. 왜냐하면 인터페이스는 `iface` 구조체를 사용하지만 `interface{}`의 경우 메소드를 가지고 있지 않는 빈 인터페이스 때문에 실제 데이터의 타입과 그 데이터를 가리키는 포인터만 가지고 있으면 충분합니다. 그래서 `eface`라는 구조체를 사용합니다.
+위에서 볼 수 있듯이 비어있는 인터페이스, 즉 `interface{}`로의 변환은 `itab`을 생성하지 않습니다. 왜냐하면 `interface{}`의 경우 메소드를 가지지 않는 빈 인터페이스 이므ㅏ로 실제 데이터의 타입과 그 데이터를 가리키는 포인터만 가지고 있으면 충분합니다. 그래서 `eface`라는 구조체를 사용합니다.
 
 ```golang
 // runtime/runtime2.go
@@ -116,7 +116,7 @@ dumped SSA to ./ssa.html
 
 ## 인터페이스 메소드 호출
 
-인터페이스에서 메소드를 호출 하는 것은 `itab` 구조체의 필드 `fun` 가상 테이블에서 함수 포인터를 가져와서 실행합니다. 이 때문에 어쩔 수 없이 성능 저하가 발생합니다. 하지만 CPU 캐시 히트를 맞히면 직접 호출과 다르지 않은 속도를 기대할 수도 있습니다. 이 부분은 [다음 글][https://github.com/teh-cmc/go-internals/blob/master/chapter2_interfaces/README.md]에서 잘 설명되어 있기 때문에 생략하겠습니다.
+인터페이스에서 메소드를 호출 하는 것은 `itab` 구조체의 필드 `fun` 가상 테이블에서 함수 포인터를 가져와서 실행합니다. 이 때문에 어쩔 수 없이 성능 저하가 발생합니다. 하지만 CPU 캐시 히트를 맞히면 직접 호출과 다르지 않은 속도를 기대할 수도 있습니다. 이 부분은 [다음 글](https://github.com/teh-cmc/go-internals/blob/master/chapter2_interfaces/README.md)에서 잘 설명되어 있기 때문에 생략하겠습니다.
 
 ## 마무리
 
