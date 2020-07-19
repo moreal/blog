@@ -2,7 +2,8 @@
 title: "How works Go interface?"
 date: 2020-02-22T22:24:39+09:00
 tags:
-- go-internals
+- go
+- internals
 ---
 
 ## 의문
